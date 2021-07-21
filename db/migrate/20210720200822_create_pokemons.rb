@@ -6,6 +6,8 @@ class CreatePokemons < ActiveRecord::Migration[6.1]
       t.string :types
       t.string :weight
       t.string :abilities
+      t.string :description
+      t.string :evolutions
 
       t.timestamps
     end

@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_07_20_200822) do
     t.string "types"
     t.string "weight"
     t.string "abilities"
+    t.string "description"
+    t.string "evolutions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
