@@ -19,6 +19,7 @@ require 'rest-client'
         response1 = RestClient.get url1
         pokemon1 = JSON.parse response1.to_str
 
+        types1 = pokemon1['types'].to_json
         abilities1 = pokemon1['abilities'].to_json
 
         url2 = "https://pokeapi.co/api/v2/characteristic/#{index}"
@@ -34,7 +35,7 @@ require 'rest-client'
         Pokemon.create({
             name: pokemon1['name'],
             img_url: pokemon1['sprites']['front_default'],
-            types: pokemon1['types'],
+            types: types1,
             weight: pokemon1['weight'],
             abilities: abilities1,
             description: pokemonDescription['descriptions'][2]['description'],
