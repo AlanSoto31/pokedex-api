@@ -17,24 +17,28 @@ require 'rest-client'
     unless index == 0 
         url1 = "https://pokeapi.co/api/v2/pokemon/#{index}"
         response1 = RestClient.get url1
-        pokemon1 = JSON.parse(response1)
+        pokemon1 = JSON.parse response1.to_str
+
+        abilities1 = pokemon1['abilities'].to_json
 
         url2 = "https://pokeapi.co/api/v2/characteristic/#{index}"
         response2 = RestClient.get url2
-        pokemonDescription = JSON.parse(response2)
+        pokemonDescription = JSON.parse response2.to_str
 
         url3 = "https://pokeapi.co/api/v2/evolution-chain/#{index}"
         response3 = RestClient.get url3
-        pokemonEvolutions = JSON.parse(response3)
+        pokemonEvolutions = JSON.parse response3.to_str
+
+        evolutions3 = pokemonEvolutions['chain']['evolves_to'].to_json
 
         Pokemon.create({
             name: pokemon1['name'],
             img_url: pokemon1['sprites']['front_default'],
             types: pokemon1['types'],
             weight: pokemon1['weight'],
-            abilities: pokemon1['abilities'],
-            description: pokemonDescription['descriptions'][2],
-            evolutions: pokemonEvolutions['chain']['evolves_to']
+            abilities: abilities1,
+            description: pokemonDescription['descriptions'][2]['description'],
+            evolutions: evolutions3,
         })
     end
 end
