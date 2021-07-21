@@ -13,7 +13,7 @@ require 'rest-client'
 # pokemon1['types'][0]['type']['name']
 # pokemon1['abilities'][0]['ability']['name']
 
-2.times do |index|
+11.times do |index|
     unless index == 0 
         url1 = "https://pokeapi.co/api/v2/pokemon/#{index}"
         response1 = RestClient.get url1
