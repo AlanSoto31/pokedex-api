@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 2021_07_20_200822) do
 
   create_table "pokemons", force: :cascade do |t|
     t.string "name"
-    t.string "img_url"
+    t.string "img_url_1"
+    t.string "img_url_2"
     t.string "types"
     t.string "weight"
     t.string "abilities"
