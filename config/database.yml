@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: pokedex_api_production
-  username: pokedex_api
-  password: <%= ENV['POKEDEX_API_DATABASE_PASSWORD'] %>
+#  username: pokedex_api
+#  password: <%= ENV['POKEDEX_API_DATABASE_PASSWORD'] %>
